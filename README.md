@@ -27,6 +27,22 @@ introduced in note 1 (evaluating the base model itself).
 | 6 | [Model Evals — Framework & Capability Domains](./06-model-evals-capabilities.md) | Why model evals matter, the common eval arc, public benchmark vs. own eval set, and the **eight capability domains** in detail. |
 | 7 | [Model Evals — Benchmarks & Harnesses](./07-model-evals-benchmarks-and-harnesses.md) | The **anatomy of a benchmark** (dataset, run config, scoring, aggregation), the eval loop, eval harnesses, who runs evals, and why benchmarks mislead. |
 
+### Benchmark Catalog — Every Benchmark, by Domain
+
+Notes 8–14 turn the concepts from notes 6–7 into a reference: every benchmark tracked by
+[BenchWiki](https://benchwiki.vercel.app), organized into six capability-domain catalogs,
+with status, contamination risk, run configuration, and lineage for each one.
+
+| # | Notes | What it covers |
+| :---: | --- | --- |
+| 8 | [Benchmark Catalog — Knowledge](./08-benchmark-catalog-knowledge.md) | 6 benchmarks: Humanity's Last Exam, SimpleQA, GPQA, MMLU-Pro, MMLU, MMLU-Redux. |
+| 9 | [Benchmark Catalog — Reasoning](./09-benchmark-catalog-reasoning.md) | 10 benchmarks: ARC-AGI-2, AGIEval, ARC-AGI, BIG-Bench Hard, CommonsenseQA, GLUE, HellaSwag, SuperGLUE, WinoGrande, BIG-Bench. |
+| 10 | [Benchmark Catalog — Maths](./10-benchmark-catalog-maths.md) | 12 benchmarks: FrontierMath, MathArena, OlympiadBench, PutnamBench, Soohak, AIME, MGSM, GSM8K, MATH, TabMWP, GSM-Hard, Omni-MATH. |
+| 11 | [Benchmark Catalog — Coding](./11-benchmark-catalog-coding.md) | 16 benchmarks: FrontierCode, SWE-bench Pro, Terminal-Bench, MBPP+, HumanEval(+), LiveCodeBench, MBPP, SWE-bench Verified, CodeContests, CodeXGLUE, CyberSecEval, Mercury, MultiPL-E, SWE-bench, SWE-Lancer. |
+| 12 | [Benchmark Catalog — Safety & Alignment](./12-benchmark-catalog-safety-alignment.md) | TruthfulQA — and an honest note on this domain's current (narrow) coverage. |
+| 13 | [Benchmark Catalog — Agentic & Tool Use](./13-benchmark-catalog-agentic-tool-use.md) | ARC-AGI-3 — and where the rest of agentic evaluation currently lives. |
+| 14 | [Benchmark Catalog — Overview](./14-benchmark-catalog-overview.md) | The shared taxonomy (status, contamination risk), how to read an entry, and how to use the catalog as an AI engineer. |
+
 ---
 
 ## The Big Picture
@@ -61,12 +77,20 @@ feedback path is the **self-improving loop**.
 ├── 05-offline-vs-online-evals.md               computed vs. captured
 ├── 06-model-evals-capabilities.md              model evals + 8 capabilities
 ├── 07-model-evals-benchmarks-and-harnesses.md  benchmarks, loop, harnesses
+├── 08-benchmark-catalog-knowledge.md           catalog: knowledge (6)
+├── 09-benchmark-catalog-reasoning.md           catalog: reasoning (10)
+├── 10-benchmark-catalog-maths.md               catalog: maths (12)
+├── 11-benchmark-catalog-coding.md              catalog: coding (16)
+├── 12-benchmark-catalog-safety-alignment.md    catalog: safety & alignment (1)
+├── 13-benchmark-catalog-agentic-tool-use.md    catalog: agentic & tool use (1)
+├── 14-benchmark-catalog-overview.md            catalog taxonomy + how to use it
 └── images/
     ├── llm-evaluation-workflow.png          (used by note 2)
     ├── failure-points-target.png            (used by note 3)
     ├── computed-vs-captured.png             (used by note 5)
     ├── online-eval-pipeline.png             (used by note 5)
-    └── benchmark-eval-loop.png              (used by note 7)
+    ├── benchmark-eval-loop.png              (used by note 7)
+    └── benchmark-status-matrix.png          (used by note 14)
 ```
 
 ---
