@@ -5,7 +5,7 @@
 > that runs it, explains why an **eval harness** is needed, who runs model evals, and the
 > ways benchmark numbers can **mislead**.
 
-This continues from [Model Evals — Framework & Capability Domains](./model-evals-capabilities.md).
+This continues from [Model Evals — Framework & Capability Domains](./06-model-evals-capabilities.md).
 
 ---
 
@@ -202,4 +202,4 @@ A single headline number hides a lot. Four recurring ways benchmarks mislead:
 
 *Notes on benchmark anatomy, the evaluation loop, eval harnesses, and benchmark pitfalls.
 Part of the Model Evals deep dive — see also
-[Model Evals — Framework & Capability Domains](./model-evals-capabilities.md).*
+[Model Evals — Framework & Capability Domains](./06-model-evals-capabilities.md).*

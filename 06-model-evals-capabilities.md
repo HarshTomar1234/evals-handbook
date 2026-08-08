@@ -247,4 +247,4 @@ brand-tone requirements, and maintaining coherent multi-turn conversations.
 ---
 
 *Notes on the Model Evals framework and the eight capability domains. Continues in
-[Model Evals — Benchmarks & Harnesses](./model-evals-benchmarks-and-harnesses.md).*
+[Model Evals — Benchmarks & Harnesses](./07-model-evals-benchmarks-and-harnesses.md).*
