@@ -159,20 +159,58 @@ Tools such as **lm-evaluation-harness**, **Inspect**, and **HELM** act as an eva
 
 ## 4. Who Runs Model Evals?
 
-Model evals are run by several different groups, each with a different motive:
+Model evals are run by three distinct groups, each with a different motive and a different
+blind spot. Reading a benchmark number correctly means knowing which of the three produced it.
 
-- **Frontier AI labs (internally).** Before releasing a model, labs run large internal eval
-  suites to benchmark capability, catch regressions, and produce the numbers published in
-  model cards and launch posts.
-- **Independent third parties and academia.** Groups like Stanford's **HELM** and various
-  university teams run standardized, transparent evals so comparisons do not depend solely on
-  a vendor's self-reported figures.
-- **Government AI safety institutes.** Bodies such as the UK and US AI Safety Institutes run
-  pre-deployment safety and dangerous-capability evals on frontier models.
-- **The open-source community.** Projects like EleutherAI's **lm-evaluation-harness** and
-  public leaderboards let anyone reproduce and compare open-model scores.
-- **Application engineers.** Teams building products run **their own eval sets** on candidate
-  models to make build-versus-buy and model-selection decisions for their specific task.
+### 4.1 Frontier Labs (the model builders)
+
+**Who:** OpenAI, Anthropic, Google DeepMind, Meta, Mistral, DeepSeek, Qwen — anyone shipping
+a model.
+
+**Why they evaluate:**
+
+- **Internally, during development.** This is the invisible majority of eval work. Evals
+  guide pretraining decisions, post-training, and which checkpoint to ship. Without them,
+  model development is blind — **you can't improve what you can't measure.**
+- **Release gating.** Deciding whether a model is good enough — and safe enough — to ship.
+- **Marketing.** The benchmark table in a launch post. This is the part you actually see.
+
+**How to read their numbers:** lab-reported numbers are a **ceiling**, measured under
+favorable conditions. They are biased in **selection** (which benchmarks get published) and
+**configuration** (which prompt format, shot count, and tooling get used) — recall from
+section 1 how much the run configuration alone can move a score.
+
+### 4.2 Third-Party Evaluators
+
+**Who:** independent organizations whose product *is* the evaluation — **LMArena** (Chatbot
+Arena), **Artificial Analysis**, **Epoch AI**, **Vals AI**, and similar.
+
+**Why they evaluate:** it is their reason for existing. They run models independently and
+publish comparisons. Their business model depends on being seen as **neutral**.
+
+**How to read their numbers:** this group is the **most useful to you as an engineer**, for
+one reason — they run every model themselves, **under the same conditions**. That
+consistency is exactly what makes a comparison trustworthy (see Part 2 above: identical run
+configuration is what makes numbers comparable at all). They also measure what labs tend to
+omit: **cost and latency**, not just capability.
+
+### 4.3 Companies and AI Engineering Teams
+
+Labs measure **general capability**. Third parties measure **cross-model comparability**.
+**Nobody in the first two groups is measuring whether the model classifies your support
+emails correctly, at a price you can afford.**
+
+That gap is exactly where the application engineer's own eval set (see
+[Model Evals — Framework & Capability Domains, section 3](./06-model-evals-capabilities.md#3-two-sources-of-tests-public-benchmark-vs-your-own-eval-set))
+comes in — a public benchmark or a third-party leaderboard can shortlist candidate models,
+but only an eval built from your actual task data can answer whether a specific model is
+right for your specific product and budget.
+
+| Group | What they optimize for | What they leave unanswered |
+| --- | --- | --- |
+| **Frontier labs** | Proving their model is state-of-the-art | Ceiling numbers under favorable, self-chosen conditions |
+| **Third-party evaluators** | Neutral, apples-to-apples comparison across models | Which model fits *your* task, data, and cost constraints |
+| **Companies / engineering teams** | Whether the model works on *their* task, at *their* budget | Nothing generic — this is the eval only you can run |
 
 ---
 
