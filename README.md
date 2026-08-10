@@ -43,6 +43,17 @@ with status, contamination risk, run configuration, and lineage for each one.
 | 13 | [Benchmark Catalog — Agentic & Tool Use](./13-benchmark-catalog-agentic-tool-use.md) | ARC-AGI-3 — and where the rest of agentic evaluation currently lives. |
 | 14 | [Benchmark Catalog — Overview](./14-benchmark-catalog-overview.md) | The shared taxonomy (status, contamination risk), how to read an entry, and how to use the catalog as an AI engineer. |
 
+### LLM Leaderboards
+
+Notes 15–16 move from individual benchmarks to **leaderboards** — how benchmark scores get
+aggregated, published, and compared across models, and why that aggregation step
+introduces its own failure modes on top of the ones already covered for benchmarks.
+
+| # | Notes | What it covers |
+| :---: | --- | --- |
+| 15 | [LLM Leaderboards — Fundamentals](./15-llm-leaderboards-fundamentals.md) | Why leaderboards exist, who needs them, the **four types**, **seven reasons** you can't fully trust them, and a **five-step framework** for reading them as an AI engineer. |
+| 16 | [LLM Leaderboards — Platforms](./16-llm-leaderboards-platforms.md) | Six real leaderboards with live screenshots — LiveBench, Artificial Analysis, Arena, Vellum, BFCL, OpenRouter — mapped onto the note 15 taxonomy. |
+
 ---
 
 ## The Big Picture
@@ -84,13 +95,22 @@ feedback path is the **self-improving loop**.
 ├── 12-benchmark-catalog-safety-alignment.md    catalog: safety & alignment (1)
 ├── 13-benchmark-catalog-agentic-tool-use.md    catalog: agentic & tool use (1)
 ├── 14-benchmark-catalog-overview.md            catalog taxonomy + how to use it
+├── 15-llm-leaderboards-fundamentals.md         why/types/limits/how to read leaderboards
+├── 16-llm-leaderboards-platforms.md            6 platforms w/ live screenshots
 └── images/
     ├── llm-evaluation-workflow.png          (used by note 2)
     ├── failure-points-target.png            (used by note 3)
     ├── computed-vs-captured.png             (used by note 5)
     ├── online-eval-pipeline.png             (used by note 5)
     ├── benchmark-eval-loop.png              (used by note 7)
-    └── benchmark-status-matrix.png          (used by note 14)
+    ├── benchmark-status-matrix.png          (used by note 14)
+    └── leaderboards/                        (used by note 16)
+        ├── livebench.jpg
+        ├── artificial-analysis.jpg
+        ├── arena.jpg
+        ├── vellum.jpg
+        ├── bfcl.jpg
+        └── openrouter.jpg
 ```
 
 ---
