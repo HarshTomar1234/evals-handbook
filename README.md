@@ -55,6 +55,17 @@ introduces its own failure modes on top of the ones already covered for benchmar
 | 15 | [LLM Leaderboards: Fundamentals](./15-llm-leaderboards-fundamentals.md) | Why leaderboards exist, who needs them, the **four types**, **seven reasons** you can't fully trust them, and a **five-step framework** for reading them as an AI engineer. |
 | 16 | [LLM Leaderboards: Platforms](./16-llm-leaderboards-platforms.md) | Six real leaderboards with live screenshots: LiveBench, Artificial Analysis, Arena, Vellum, BFCL, and OpenRouter, mapped onto the note 15 taxonomy. |
 
+### RAG Evals
+
+Notes 17 and 18 zoom into Retrieval-Augmented Generation specifically, the running example
+from note 3's K=5 breakdown. This is where the component-vs-workflow failure split gets
+its own dedicated metrics and tooling.
+
+| # | Notes | What it covers |
+| :---: | --- | --- |
+| 17 | [RAG Evals: Fundamentals](./17-rag-evals-fundamentals.md) | The **RAG Triad**, retrieval-stage IR metrics (Precision@K, Recall@K, MRR, NDCG), the core generation-stage metrics with exact formulas (Faithfulness, Context Precision, Context Recall, Answer Relevancy/Correctness), and how claim-level faithfulness checking works. |
+| 18 | [RAG Evals: Building the Practice](./18-rag-evals-practice.md) | Synthetic golden dataset generation, how chunking strategy distorts retrieval scores, a framework comparison (RAGAS, DeepEval, TruLens, Arize Phoenix), multi-hop and agentic RAG evaluation, and common pitfalls. |
+
 ---
 
 ## The Big Picture
@@ -98,6 +109,8 @@ final feedback path is the self-improving loop.
 ├── 14-benchmark-catalog-overview.md            catalog taxonomy + how to use it
 ├── 15-llm-leaderboards-fundamentals.md         why/types/limits/how to read leaderboards
 ├── 16-llm-leaderboards-platforms.md            6 platforms w/ live screenshots
+├── 17-rag-evals-fundamentals.md                RAG Triad, IR metrics, generation metrics
+├── 18-rag-evals-practice.md                    datasets, chunking, frameworks, pitfalls
 └── images/
     ├── llm-evaluation-workflow.png          (used by note 2)
     ├── failure-points-target.png            (used by note 3)
