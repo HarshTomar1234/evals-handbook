@@ -1,7 +1,7 @@
-# LLM Evaluations — Study Notes
+# LLM Evaluations: Study Notes
 
-A structured set of notes on **LLM Evaluations (Evals)** — from core concepts, through
-the practical evaluation workflow, to production-grade online monitoring. Each note is
+A structured set of notes on LLM Evaluations (Evals). It covers core concepts, the
+practical evaluation workflow, and production-grade online monitoring. Each note is
 self-contained but builds on the previous one, so the reading order below is recommended
 for a first pass.
 
@@ -12,54 +12,55 @@ for a first pass.
 | # | Notes | What it covers |
 | :---: | --- | --- |
 | 1 | [What are LLM Evals?](./01-llm_evals.md) | Definition, evals vs. metrics, and the two domains: **Model Evals** vs. **Application Evals**. |
-| 2 | [The Application Evaluation Workflow](./02-llm_application_evaluation_workflow.md) | The **11-step loop** (Zomato email-router case study) — from defining the task to monitoring and feedback. |
+| 2 | [The Application Evaluation Workflow](./02-llm_application_evaluation_workflow.md) | The **11-step loop** (Zomato email-router case study), from defining the task to monitoring and feedback. |
 | 3 | [Why Multiple Eval Pipelines](./03-why-multiple-eval-pipelines.md) | The **failure levels** (component / workflow / application), the K=5 RAG breakdown, and the risk matrix (Quality / Safety / Operations). |
-| 4 | [LLM Evaluation Methods](./04-llm-evaluation-methods.md) | The three methods — **Programmatic**, **Human-based**, **LLM-as-a-Judge** — plus reference-based vs. reference-free and offline vs. online. |
+| 4 | [LLM Evaluation Methods](./04-llm-evaluation-methods.md) | The three methods: **Programmatic**, **Human-based**, and **LLM-as-a-Judge**, plus reference-based vs. reference-free and offline vs. online. |
 | 5 | [Offline vs. Online Evals](./05-offline-vs-online-evals.md) | The online evaluation pipeline and a deep dive on **Computed vs. Captured** criteria; the self-improving loop. |
 
-### Model Evals — Deep Dive
+### Model Evals: Deep Dive
 
-Notes 1–5 focus mostly on **Application Evals**. These two expand the **Model Evals** domain
-introduced in note 1 (evaluating the base model itself).
-
-| # | Notes | What it covers |
-| :---: | --- | --- |
-| 6 | [Model Evals — Framework & Capability Domains](./06-model-evals-capabilities.md) | Why model evals matter, the common eval arc, public benchmark vs. own eval set, and the **eight capability domains** in detail. |
-| 7 | [Model Evals — Benchmarks & Harnesses](./07-model-evals-benchmarks-and-harnesses.md) | The **anatomy of a benchmark** (dataset, run config, scoring, aggregation), the eval loop, eval harnesses, who runs evals, and why benchmarks mislead. |
-
-### Benchmark Catalog — Every Benchmark, by Domain
-
-Notes 8–14 turn the concepts from notes 6–7 into a reference: every benchmark tracked by
-[BenchWiki](https://benchwiki.vercel.app), organized into six capability-domain catalogs,
-with status, contamination risk, run configuration, and lineage for each one.
+Notes 1 to 5 focus mostly on **Application Evals**. These two expand the **Model Evals**
+domain introduced in note 1 (evaluating the base model itself).
 
 | # | Notes | What it covers |
 | :---: | --- | --- |
-| 8 | [Benchmark Catalog — Knowledge](./08-benchmark-catalog-knowledge.md) | 6 benchmarks: Humanity's Last Exam, SimpleQA, GPQA, MMLU-Pro, MMLU, MMLU-Redux. |
-| 9 | [Benchmark Catalog — Reasoning](./09-benchmark-catalog-reasoning.md) | 10 benchmarks: ARC-AGI-2, AGIEval, ARC-AGI, BIG-Bench Hard, CommonsenseQA, GLUE, HellaSwag, SuperGLUE, WinoGrande, BIG-Bench. |
-| 10 | [Benchmark Catalog — Maths](./10-benchmark-catalog-maths.md) | 12 benchmarks: FrontierMath, MathArena, OlympiadBench, PutnamBench, Soohak, AIME, MGSM, GSM8K, MATH, TabMWP, GSM-Hard, Omni-MATH. |
-| 11 | [Benchmark Catalog — Coding](./11-benchmark-catalog-coding.md) | 16 benchmarks: FrontierCode, SWE-bench Pro, Terminal-Bench, MBPP+, HumanEval(+), LiveCodeBench, MBPP, SWE-bench Verified, CodeContests, CodeXGLUE, CyberSecEval, Mercury, MultiPL-E, SWE-bench, SWE-Lancer. |
-| 12 | [Benchmark Catalog — Safety & Alignment](./12-benchmark-catalog-safety-alignment.md) | TruthfulQA — and an honest note on this domain's current (narrow) coverage. |
-| 13 | [Benchmark Catalog — Agentic & Tool Use](./13-benchmark-catalog-agentic-tool-use.md) | ARC-AGI-3 — and where the rest of agentic evaluation currently lives. |
-| 14 | [Benchmark Catalog — Overview](./14-benchmark-catalog-overview.md) | The shared taxonomy (status, contamination risk), how to read an entry, and how to use the catalog as an AI engineer. |
+| 6 | [Model Evals: Framework & Capability Domains](./06-model-evals-capabilities.md) | Why model evals matter, the common eval arc, public benchmark vs. own eval set, and the **eight capability domains** in detail. |
+| 7 | [Model Evals: Benchmarks & Harnesses](./07-model-evals-benchmarks-and-harnesses.md) | The **anatomy of a benchmark** (dataset, run config, scoring, aggregation), the eval loop, eval harnesses, who runs evals, and why benchmarks mislead. |
+
+### Benchmark Catalog: Every Benchmark, by Domain
+
+Notes 8 to 14 turn the concepts from notes 6 and 7 into a reference: every benchmark
+tracked by [BenchWiki](https://benchwiki.vercel.app), organized into six
+capability-domain catalogs, with status, contamination risk, run configuration, and
+lineage for each one.
+
+| # | Notes | What it covers |
+| :---: | --- | --- |
+| 8 | [Benchmark Catalog: Knowledge](./08-benchmark-catalog-knowledge.md) | 6 benchmarks: Humanity's Last Exam, SimpleQA, GPQA, MMLU-Pro, MMLU, MMLU-Redux. |
+| 9 | [Benchmark Catalog: Reasoning](./09-benchmark-catalog-reasoning.md) | 10 benchmarks: ARC-AGI-2, AGIEval, ARC-AGI, BIG-Bench Hard, CommonsenseQA, GLUE, HellaSwag, SuperGLUE, WinoGrande, BIG-Bench. |
+| 10 | [Benchmark Catalog: Maths](./10-benchmark-catalog-maths.md) | 12 benchmarks: FrontierMath, MathArena, OlympiadBench, PutnamBench, Soohak, AIME, MGSM, GSM8K, MATH, TabMWP, GSM-Hard, Omni-MATH. |
+| 11 | [Benchmark Catalog: Coding](./11-benchmark-catalog-coding.md) | 16 benchmarks: FrontierCode, SWE-bench Pro, Terminal-Bench, MBPP+, HumanEval(+), LiveCodeBench, MBPP, SWE-bench Verified, CodeContests, CodeXGLUE, CyberSecEval, Mercury, MultiPL-E, SWE-bench, SWE-Lancer. |
+| 12 | [Benchmark Catalog: Safety & Alignment](./12-benchmark-catalog-safety-alignment.md) | TruthfulQA, plus an honest note on this domain's current (narrow) coverage. |
+| 13 | [Benchmark Catalog: Agentic & Tool Use](./13-benchmark-catalog-agentic-tool-use.md) | ARC-AGI-3, and where the rest of agentic evaluation currently lives. |
+| 14 | [Benchmark Catalog: Overview](./14-benchmark-catalog-overview.md) | The shared taxonomy (status, contamination risk), how to read an entry, and how to use the catalog as an AI engineer. |
 
 ### LLM Leaderboards
 
-Notes 15–16 move from individual benchmarks to **leaderboards** — how benchmark scores get
+Notes 15 and 16 move from individual benchmarks to leaderboards: how benchmark scores get
 aggregated, published, and compared across models, and why that aggregation step
 introduces its own failure modes on top of the ones already covered for benchmarks.
 
 | # | Notes | What it covers |
 | :---: | --- | --- |
-| 15 | [LLM Leaderboards — Fundamentals](./15-llm-leaderboards-fundamentals.md) | Why leaderboards exist, who needs them, the **four types**, **seven reasons** you can't fully trust them, and a **five-step framework** for reading them as an AI engineer. |
-| 16 | [LLM Leaderboards — Platforms](./16-llm-leaderboards-platforms.md) | Six real leaderboards with live screenshots — LiveBench, Artificial Analysis, Arena, Vellum, BFCL, OpenRouter — mapped onto the note 15 taxonomy. |
+| 15 | [LLM Leaderboards: Fundamentals](./15-llm-leaderboards-fundamentals.md) | Why leaderboards exist, who needs them, the **four types**, **seven reasons** you can't fully trust them, and a **five-step framework** for reading them as an AI engineer. |
+| 16 | [LLM Leaderboards: Platforms](./16-llm-leaderboards-platforms.md) | Six real leaderboards with live screenshots: LiveBench, Artificial Analysis, Arena, Vellum, BFCL, and OpenRouter, mapped onto the note 15 taxonomy. |
 
 ---
 
 ## The Big Picture
 
-The series moves through three stages — understanding *what* evals are, learning *how* to
-run them, and applying them *in production*:
+The series moves through three stages: understanding *what* evals are, learning *how* to
+run them, and applying them *in production*.
 
 ```
         WHAT                        HOW                        IN PRODUCTION
@@ -71,16 +72,16 @@ run them, and applying them *in production*:
 ```
 
 **Throughline:** Define clear criteria, build a Golden Dataset, pick an evaluation method,
-then run, analyze, improve, and iterate. Once the system meets its threshold, deploy it and
-monitor live traffic, feeding real-world failures back into the Golden Dataset. That final
-feedback path is the **self-improving loop**.
+then run, analyze, improve, and iterate. Once the system meets its threshold, deploy it
+and monitor live traffic, feeding real-world failures back into the Golden Dataset. That
+final feedback path is the self-improving loop.
 
 ---
 
 ## Folder Structure
 
 ```
-├── README.md                                   (index — this file)
+├── README.md                                   (index, this file)
 ├── 01-llm_evals.md                             concepts
 ├── 02-llm_application_evaluation_workflow.md   the 11-step workflow
 ├── 03-why-multiple-eval-pipelines.md           failure levels + risk matrix
@@ -119,9 +120,9 @@ feedback path is the **self-improving loop**.
 
 | Term | Meaning |
 | --- | --- |
-| **Golden Dataset** | Curated 50–500 row test set with ground-truth labels; the backbone of offline evals. |
+| **Golden Dataset** | Curated 50 to 500 row test set with ground-truth labels; the backbone of offline evals. |
 | **Recall @ K** | Fraction of relevant documents a retriever fetches within its top-K results. |
-| **LLM-as-a-Judge** | Using a capable LLM to grade outputs — human-like nuance at program speed and cost. |
+| **LLM-as-a-Judge** | Using a capable LLM to grade outputs, giving human-like nuance at program speed and cost. |
 | **MAE (Mean Absolute Error)** | Average deviation between LLM grades and human grades; the goal is to drive it toward 0. |
 | **Groundedness / Faithfulness** | Whether an answer is strictly supported by the retrieved context. |
 | **Captured criteria** | Metrics read directly from the trace (latency, cost, tokens, thumbs, escalation). |
