@@ -66,6 +66,23 @@ its own dedicated metrics and tooling.
 | 17 | [RAG Evals: Fundamentals](./17-rag-evals-fundamentals.md) | The **RAG Triad**, retrieval-stage IR metrics (Precision@K, Recall@K, MRR, NDCG), the core generation-stage metrics with exact formulas (Faithfulness, Context Precision, Context Recall, Answer Relevancy/Correctness), and how claim-level faithfulness checking works. |
 | 18 | [RAG Evals: Building the Practice](./18-rag-evals-practice.md) | Synthetic golden dataset generation, how chunking strategy distorts retrieval scores, a framework comparison (RAGAS, DeepEval, TruLens, Arize Phoenix), multi-hop and agentic RAG evaluation, and common pitfalls. |
 
+**Visual overview: evaluation strategy for a RAG application.** RAG evaluation sits
+entirely under **Application Evals** in note 1's Model vs. Application split, since it
+evaluates a system built around a model, not the base model itself. The diagram below
+walks the full strategy end to end: Component evals (retriever and generator tested in
+isolation), Pipeline evals (the RAG Triad, on the real wired handoff between retriever and
+generator), Application evals (the whole product judged as a deliverable), Regression (the
+same offline suite re-run after any change), and Online monitoring in production, all fed
+by, and feeding back into, one Golden Dataset.
+
+![Evaluation strategy for a RAG application: offline component, pipeline, application, and regression layers, feeding an online production monitoring loop](./images/rag-evaluation-strategy.png)
+
+Every layer in this diagram maps onto a note already in this series. Component and
+Pipeline map to the [component vs. workflow failure levels in note 3](./03-why-multiple-eval-pipelines.md#1-core-reason-1-multiple-failure-points),
+Pipeline's metrics are the [RAG Triad from note 17](./17-rag-evals-fundamentals.md#2-the-rag-triad),
+the Golden Dataset box is [note 2's Golden Dataset step](./02-llm_application_evaluation_workflow.md#step-3--build-a-golden-dataset),
+and the Online column is [note 5's Computed vs. Captured criteria and self-improving loop](./05-offline-vs-online-evals.md#10-the-self-improving-loop).
+
 ---
 
 ## The Big Picture
@@ -118,6 +135,7 @@ final feedback path is the self-improving loop.
     ├── online-eval-pipeline.png             (used by note 5)
     ├── benchmark-eval-loop.png              (used by note 7)
     ├── benchmark-status-matrix.png          (used by note 14)
+    ├── rag-evaluation-strategy.png          (used in README)
     └── leaderboards/                        (used by note 16)
         ├── livebench.jpg
         ├── artificial-analysis.jpg
